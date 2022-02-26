@@ -1,0 +1,21 @@
+{% extends "backend/base.html" %}
+
+{% block title %}
+    Article List
+{% endblock %}
+
+{% block main %}
+    {% for article in object_list %}
+    
+    <article>
+        <h2>{{ article.title }}</h2>
+        <div>{{ article.author }}</div>
+        <div>{{ article.publish }}</div>
+        {{ article.content|linebreaks }}
+    </article>
+    <hr>
+
+    {% empty %}
+    <div>Nothing to Show...</div>
+    {% endfor %}
+{% endblock %}
